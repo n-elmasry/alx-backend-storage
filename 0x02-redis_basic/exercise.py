@@ -7,6 +7,7 @@ from functools import wraps
 
 
 def count_calls(method: Callable) -> Callable:
+    '''Tracks the number of calls made to a method in a Cache class.'''
     key = method.__qualname__
 
     @wraps(method)
@@ -18,6 +19,7 @@ def count_calls(method: Callable) -> Callable:
 
 
 def call_history(method: Callable) -> Callable:
+    '''Tracks the call details of a method in a Cache class.'''
 
     @wraps(method)
     def wrapper(self, *args, **kwargs):
